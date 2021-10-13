@@ -7,7 +7,6 @@ import { Route, BrowserRouter as Router } from "react-router-dom";
 function App() {
   return (
     <Router>
-    <div className="container">
       <nav className="navbar navbar-expand navbar-light bg-light">
           <div className="nav navbar-nav">
               <a className="nav-item nav-link active" href="/">Sistema <span className="sr-only">(current)</span></a>
@@ -15,6 +14,8 @@ function App() {
           </div>
       </nav>
 
+    <div className="container">
+      <br></br>
       <Route exact path="/" component={Listar}></Route>
       <Route path="/crear" component={Crear}></Route>
 
