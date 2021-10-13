@@ -5,6 +5,21 @@ class Listar extends React.Component {
         super(props);
         this.state = {  }
     }
+
+
+    cargarDatos(){
+
+        //fetch("https://jsonplaceholder.typicode.com/users")
+        fetch("https://api.dailymotion.com/videos?channel=sport&limit=10")
+        .then(respuesta=>respuesta.json())
+        .then( (datosRespuesta) => {console.log(datosRespuesta)})
+        .catch( console.log)
+    }
+
+    componentDidMount(){
+        this.cargarDatos();
+    }
+
     render() { 
         return ( <table className="table">
             <thead>
