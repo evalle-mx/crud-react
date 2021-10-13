@@ -5,7 +5,7 @@ class Listar extends React.Component {
         this.state = {  }
     }
     render() { 
-        return ( <table class="table">
+        return ( <table className="table">
             <thead>
                 <tr>
                     <th>ID</th>
@@ -15,7 +15,7 @@ class Listar extends React.Component {
             </thead>
             <tbody>
                 <tr>
-                    <td scope="row">1</td>
+                    <td >1</td>
                     <td>Oscar</td>
                     <td>oscar@develoteca.com</td>
                 </tr>

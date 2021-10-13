@@ -6,15 +6,15 @@ class Crear extends React.Component {
         this.state = {  }
     }
     render() { 
-        return ( <div class="card">
-            <div class="card-header">
+        return ( <div className="card">
+            <div className="card-header">
                 Empleados
             </div>
-            <div class="card-body">
-                <h4 class="card-title">Title</h4>
-                <p class="card-text">Text</p>
+            <div className="card-body">
+                <h4 className="card-title">Title</h4>
+                <p className="card-text">Text</p>
             </div>
-            <div class="card-footer text-muted">
+            <div className="card-footer text-muted">
                 Footer
             </div>
         </div> );
