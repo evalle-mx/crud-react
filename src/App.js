@@ -5,15 +5,17 @@ import Crear from "./componentes/Crear";
 import Editar from "./componentes/Editar";
 
 import { Route, BrowserRouter as Router } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 function App() {
   return (
     <Router>
       <nav className="navbar navbar-expand navbar-light bg-light">
           <div className="nav navbar-nav">
-              <a className="nav-item nav-link active" href="/">Sistema <span className="sr-only">(current)</span></a>
-              <a className="nav-item nav-link" href="/crear">Crear empleado</a>
-              <a className="nav-item nav-link" href="/editar">Editar empleado</a>
+
+              <Link className="nav-item nav-link active" to={"/"}>Sistema <span className="sr-only">(current)</span></Link>
+              <Link className="nav-item nav-link" to={"/crear"}>Crear empleado</Link>
+              <Link className="nav-item nav-link" to={"/editar"}>Editar empleado</Link>
           </div>
       </nav>
 
