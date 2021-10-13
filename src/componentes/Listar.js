@@ -3,7 +3,10 @@ import { Link } from "react-router-dom";
 class Listar extends React.Component {
     constructor(props) {
         super(props);
-        this.state = { datosCargados:false }
+        this.state = { 
+            datosCargados:false,
+            empleados:[]
+        }
     }
 
 
@@ -15,7 +18,7 @@ class Listar extends React.Component {
         .then( (datosRespuesta) => {
 
                 console.log(datosRespuesta);
-                this.setState({ datosCargados:true })
+                this.setState({ datosCargados:true, empleados:datosRespuesta})
             })
         .catch( console.log)
     }
@@ -25,7 +28,7 @@ class Listar extends React.Component {
     }
 
     render() { 
-        const{datosCargados}=this.state
+        const{datosCargados, empleados }=this.state
 
         if(!datosCargados){
             return (<div>Cargando...</div>);
@@ -41,17 +44,25 @@ class Listar extends React.Component {
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td >1</td>
-                        <td>Oscar</td>
-                        <td>oscar@develoteca.com</td>
-                        <td>
-                            <div className="btn-group" role="group" aria-label="">
-                                <Link className="btn btn-warning" to={"/editar"}>Editar</Link>
-                                <button type="button" className="btn btn-danger">Borrar</button>
-                            </div>
-                        </td>
-                    </tr>
+                    {
+                        empleados.map(
+                            (empleado)=>(
+                                <tr key={empleado.id}>
+                                    <td>{empleado.id}</td>
+                                    <td>{empleado.name}</td>
+                                    <td>{empleado.email}</td>
+                                    <td>
+                                        <div className="btn-group" role="group" aria-label="">
+                                            <Link className="btn btn-warning" to={"/editar"}>Editar</Link>
+                                            <button type="button" className="btn btn-danger">Borrar</button>
+                                        </div>
+                                    </td>
+                                </tr>
+                        )
+                    )}
+
+
+                    
                 </tbody>
             </table> );
         }
