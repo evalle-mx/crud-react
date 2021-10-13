@@ -1,24 +1,23 @@
 import logo from './logo.svg';
 import './App.css';
+import Listar from "./componentes/Listar";
+import { Route, BrowserRouter as Router } from "react-router-dom";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <Router>
+    <div className="container">
+      <nav class="navbar navbar-expand navbar-light bg-light">
+          <div class="nav navbar-nav">
+              <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
+              <a class="nav-item nav-link" href="#">Home</a>
+          </div>
+      </nav>
+
+      <Route exact path="/" component={Listar}></Route>
+
     </div>
+    </Router>
   );
 }
 
