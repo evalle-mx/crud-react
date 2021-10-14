@@ -5,6 +5,11 @@ class Editar extends React.Component {
         super(props);
         this.state = {  }
     }
+
+    componentDidMount(){
+        console.log(this.props.match.params.id);
+    }
+
     render() { 
         return ( <div className="card">
             <div className="card-header">

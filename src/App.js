@@ -13,7 +13,7 @@ function App() {
       <nav className="navbar navbar-expand navbar-light bg-light">
           <div className="nav navbar-nav">
 
-              <Link className="nav-item nav-link active" to={"/"}>Sistema <span className="sr-only">(current)</span></Link>
+              <Link className="nav-item nav-link active" to={"/"}>Sistema </Link> 
               <Link className="nav-item nav-link" to={"/crear"}>Crear empleado</Link>
               <Link className="nav-item nav-link" to={"/editar"}>Editar empleado</Link>
           </div>
@@ -23,7 +23,7 @@ function App() {
       <br></br>
       <Route exact path="/" component={Listar}></Route>
       <Route path="/crear" component={Crear}></Route>
-      <Route path="/editar" component={Editar}></Route>
+      <Route path="/editar/:id" component={Editar}></Route>
 
     </div>
     </Router>
