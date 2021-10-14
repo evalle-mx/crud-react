@@ -10,6 +10,20 @@ class Listar extends React.Component {
     }
 
 
+    borrarRegistro = (id) => {
+        console.log(id);
+        
+        fetch("http://127.0.0.1/empleados/?borrar="+id)
+        .then(respuesta=>respuesta.json())
+        .then( (datosRespuesta) => {
+
+                console.log(datosRespuesta);
+                this.cargarDatos();
+            })
+        .catch( console.log)
+        
+    }
+
     cargarDatos(){
 
         //fetch("https://jsonplaceholder.typicode.com/users")
@@ -63,7 +77,8 @@ class Listar extends React.Component {
                                                 <td>
                                                     <div className="btn-group" role="group" aria-label="">
                                                         <Link className="btn btn-warning" to={"/editar"}>Editar</Link>
-                                                        <button type="button" className="btn btn-danger">Borrar</button>
+                                                        <button type="button" className="btn btn-danger"
+                                                            onClick={ ()=>this.borrarRegistro(empleado.id)} >Borrar</button>
                                                     </div>
                                                 </td>
                                             </tr>
