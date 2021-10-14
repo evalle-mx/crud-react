@@ -77,13 +77,13 @@ class Editar extends React.Component {
 
                             <div className="form-group">
                                 <label htmlFor="nombre">Nombre:</label>
-                                <input type="text" name="nombre" id="nombre" value={empleado.nombre} onChange={this.cambioValor} className="form-control" placeholder="" aria-describedby="helpId"/>
+                                <input required type="text" name="nombre" id="nombre" value={empleado.nombre} onChange={this.cambioValor} className="form-control" placeholder="" aria-describedby="helpId"/>
                                 <small id="helpId" className="text-muted">Escribe el nombre del empleado</small>
                             </div>
 
                             <div className="form-group">
                                 <label htmlFor="correo">Correo:</label>
-                                <input type="text" name="correo" id="correo" value={empleado.correo} onChange={this.cambioValor} className="form-control" placeholder="user@mail.com" aria-describedby="helpId"/>
+                                <input required type="text" name="correo" id="correo" value={empleado.correo} onChange={this.cambioValor} className="form-control" placeholder="user@mail.com" aria-describedby="helpId"/>
                                 <small id="helpId" className="text-muted">Correo del empleado</small>
                             </div>
 
