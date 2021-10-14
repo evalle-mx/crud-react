@@ -4,8 +4,10 @@ import { Link } from "react-router-dom";
 class Editar extends React.Component {
     constructor(props) {
         super(props);
-        this.state = { datosCargados:false,
-        empleado:[] }
+        this.state = { 
+            datosCargados:false,
+            empleado:[] 
+        }
     }
 
     cambioValor = (e) => {
@@ -35,37 +37,48 @@ class Editar extends React.Component {
     render() { 
         const{datosCargados, empleado }=this.state
 
-        return ( <div className="card">
-            <div className="card-header">
-                Editar Empleados
-            </div>
-            <div className="card-body">
-
-                <form onSubmit={this.enviarDatos}>
-                    {empleado.id}
-                    <div className="form-group">
-                        <label htmlFor="">Nombre:</label>
-                        <input type="text" name="nombre" id="nombre" value={empleado.nombre} onChange={this.cambioValor} className="form-control" placeholder="" aria-describedby="helpId"/>
-                        <small id="helpId" className="text-muted">Escribe el nombre del empleado</small>
+        if(!datosCargados){  return (<div>Cargando...</div>); }
+        else{
+            return ( 
+                <div className="card">
+                    <div className="card-header">
+                        Editar Empleados
                     </div>
+                    <div className="card-body">
 
-                    <div className="form-group">
-                        <label htmlFor="correo">Correo:</label>
-                        <input type="text" name="correo" id="correo" value={empleado.correo} onChange={this.cambioValor} className="form-control" placeholder="user@mail.com" aria-describedby="helpId"/>
-                        <small id="helpId" className="text-muted">Correo del empleado</small>
+                        <form onSubmit={this.enviarDatos}>
+                            <div className="form-group">
+                                <label htmlFor="id"></label>
+                                <input type="text" readOnly className="form-control" name="id" id="id" value={empleado.id}
+                                    aria-describedby="helpId" placeholder=""/>
+                                <small id="helpId" className="form-text text-muted">Clave</small>
+                            </div>
+
+                            <div className="form-group">
+                                <label htmlFor="nombre">Nombre:</label>
+                                <input type="text" name="nombre" id="nombre" value={empleado.nombre} onChange={this.cambioValor} className="form-control" placeholder="" aria-describedby="helpId"/>
+                                <small id="helpId" className="text-muted">Escribe el nombre del empleado</small>
+                            </div>
+
+                            <div className="form-group">
+                                <label htmlFor="correo">Correo:</label>
+                                <input type="text" name="correo" id="correo" value={empleado.correo} onChange={this.cambioValor} className="form-control" placeholder="user@mail.com" aria-describedby="helpId"/>
+                                <small id="helpId" className="text-muted">Correo del empleado</small>
+                            </div>
+
+                            <div className="btn-group" role="group" aria-label="">
+                                <button type="submit" className="btn btn-success">Agregar nuevo empleado</button>
+                                <Link className="btn btn-primary" to={"/"}>Cancelar</Link>
+                            </div>
+
+                        </form>
                     </div>
-
-                    <div className="btn-group" role="group" aria-label="">
-                        <button type="submit" className="btn btn-success">Agregar nuevo empleado</button>
-                        <Link className="btn btn-primary" to={"/"}>Cancelar</Link>
+                    <div className="card-footer text-muted">
+                        
                     </div>
-
-                </form>
-            </div>
-            <div className="card-footer text-muted">
-                Footer
-            </div>
-        </div> );
+                </div>
+            );
+        }
     }
 }
 export default Editar;
