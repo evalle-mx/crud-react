@@ -5,24 +5,43 @@ import { Link } from "react-router-dom";
 class Crear extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {  }
+        this.state = { nombre:'', correo:'' }
     }
+
+    cambioValor = (e) => {
+        const state = this.state;
+        state[e.target.name]=e.target.value;
+        this.setState({ state });
+    }
+
+    enviarDatos = (e) => {
+        e.preventDefault();
+        console.log('Formulario enviado...');
+
+        const {nombre, correo} = this.state;
+        console.log(nombre);
+        console.log(correo);
+    }
+
     render() { 
+
+        const {nombre, correo} = this.state;
+
         return ( <div className="card">
             <div className="card-header">
                 Empleados
             </div>
             <div className="card-body">
-                <form>
+                <form onSubmit={this.enviarDatos}>
                     <div className="form-group">
                         <label htmlFor="">Nombre:</label>
-                        <input type="text" name="nombre" id="nombre" className="form-control" placeholder="" aria-describedby="helpId"/>
+                        <input type="text" name="nombre" id="nombre" value={nombre} onChange={this.cambioValor} className="form-control" placeholder="" aria-describedby="helpId"/>
                         <small id="helpId" className="text-muted">Escribe el nombre del empleado</small>
                     </div>
 
                     <div className="form-group">
                         <label htmlFor="correo">Correo:</label>
-                        <input type="text" name="correo" id="correo" className="form-control" placeholder="user@mail.com" aria-describedby="helpId"/>
+                        <input type="text" name="correo" id="correo" value={correo} onChange={this.cambioValor} className="form-control" placeholder="user@mail.com" aria-describedby="helpId"/>
                         <small id="helpId" className="text-muted">Correo del empleado</small>
                     </div>
 
