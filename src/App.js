@@ -14,8 +14,6 @@ function App() {
           <div className="nav navbar-nav">
 
               <Link className="nav-item nav-link active" to={"/"}>Sistema </Link> 
-              <Link className="nav-item nav-link" to={"/crear"}>Crear empleado</Link>
-              <Link className="nav-item nav-link" to={"/editar"}>Editar empleado</Link>
           </div>
       </nav>
 
