@@ -11,7 +11,7 @@ class Editar extends React.Component {
     }
 
     cambioValor = (e) => {
-        const state = this.state;
+        const state = this.state.empleado;
         state[e.target.name]=e.target.value;
         this.setState({ empleado:state });
     }
@@ -19,6 +19,11 @@ class Editar extends React.Component {
     enviarDatos = (e) => {
         e.preventDefault();
         console.log('Formulario enviado...');
+        
+        const{ id, nombre, correo }= this.state.empleado;
+        console.log(id);
+        console.log(nombre);
+        console.log(correo);
     }
 
     componentDidMount(){
@@ -67,7 +72,7 @@ class Editar extends React.Component {
                             </div>
 
                             <div className="btn-group" role="group" aria-label="">
-                                <button type="submit" className="btn btn-success">Agregar nuevo empleado</button>
+                                <button type="submit" className="btn btn-success">Actualizar empleado</button>
                                 <Link className="btn btn-primary" to={"/"}>Cancelar</Link>
                             </div>
 
