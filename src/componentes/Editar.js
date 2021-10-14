@@ -19,11 +19,24 @@ class Editar extends React.Component {
     enviarDatos = (e) => {
         e.preventDefault();
         console.log('Formulario enviado...');
-        
+
         const{ id, nombre, correo }= this.state.empleado;
         console.log(id);
         console.log(nombre);
         console.log(correo);
+
+        var datosEnviar = {id:id, nombre:nombre, correo:correo};
+        fetch("http://127.0.0.1/empleados/?actualizar=1", {
+            method:"POST",
+            body:JSON.stringify(datosEnviar)
+        })
+        .then(respuesta=>respuesta.json())
+        .then( (datosRespuesta) => {
+
+                console.log(datosRespuesta);
+                this.props.history.push("/");
+            })
+        .catch( console.log)
     }
 
     componentDidMount(){
