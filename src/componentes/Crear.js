@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from "react-router-dom";
-
+import Api from "../servicios/api";
 
 class Crear extends React.Component {
     constructor(props) {
@@ -25,7 +25,8 @@ class Crear extends React.Component {
         var datosEnviar = {nombre:nombre, correo:correo};
 
         // metodo isset en Php
-        fetch("http://127.0.0.1/empleados/?insertar=1", {
+        //fetch("http://127.0.0.1/empleados/?insertar=1", {
+        fetch(Api +'?insertar=1', {
             method:"POST",
             body:JSON.stringify(datosEnviar)
         })
@@ -74,5 +75,4 @@ class Crear extends React.Component {
         </div> );
     }
 }
- 
 export default Crear;

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from "react-router-dom";
+import Api from "../servicios/api";
 class Listar extends React.Component {
     constructor(props) {
         super(props);
@@ -13,7 +14,8 @@ class Listar extends React.Component {
     borrarRegistro = (id) => {
         console.log(id);
         
-        fetch("http://127.0.0.1/empleados/?borrar="+id)
+        //fetch("http://127.0.0.1/empleados/?borrar="+id)
+        fetch(Api+"?borrar="+id)
         .then(respuesta=>respuesta.json())
         .then( (datosRespuesta) => {
 
@@ -26,9 +28,10 @@ class Listar extends React.Component {
 
     cargarDatos(){
 
-        //fetch("https://jsonplaceholder.typicode.com/users")
+        /*//fetch("https://jsonplaceholder.typicode.com/users")
         // fetch("https://api.dailymotion.com/videos?channel=sport&limit=10")
-        fetch("http://127.0.0.1/empleados/")
+        fetch("http://127.0.0.1/empleados/") */
+        fetch(Api)
         .then(respuesta=>respuesta.json())
         .then( (datosRespuesta) => {
 

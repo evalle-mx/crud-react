@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from "react-router-dom";
+import Api from "../servicios/api";
 
 class Editar extends React.Component {
     constructor(props) {
@@ -26,7 +27,8 @@ class Editar extends React.Component {
         console.log(correo);
 
         var datosEnviar = {id:id, nombre:nombre, correo:correo};
-        fetch("http://127.0.0.1/empleados/?actualizar=1", {
+        //fetch("http://127.0.0.1/empleados/?actualizar=1", {
+        fetch(Api +'?actualizar=1', {
             method:"POST",
             body:JSON.stringify(datosEnviar)
         })
@@ -42,7 +44,8 @@ class Editar extends React.Component {
     componentDidMount(){
         console.log(this.props.match.params.id);
 
-        fetch("http://127.0.0.1/empleados/?consultar="+this.props.match.params.id)
+        //fetch("http://127.0.0.1/empleados/?consultar="+this.props.match.params.id)
+        fetch(Api +'?consultar='+this.props.match.params.id)
         .then(respuesta=>respuesta.json())
         .then( (datosRespuesta) => {
 
