@@ -21,6 +21,21 @@ class Crear extends React.Component {
         const {nombre, correo} = this.state;
         console.log(nombre);
         console.log(correo);
+
+        var datosEnviar = {nombre:nombre, correo:correo};
+
+        // metodo isset en Php
+        fetch("http://127.0.0.1/empleados/?insertar=1", {
+            method:"POST",
+            body:JSON.stringify(datosEnviar)
+        })
+        .then(respuesta=>respuesta.json())
+        .then( (datosRespuesta) => {
+
+                console.log(datosRespuesta);
+                this.props.history.push("/");
+            })
+        .catch( console.log)
     }
 
     render() { 
